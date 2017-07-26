@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-export const Home = (props) => {
+import { actions } from '../../redux/modules/currentTime';
+/*
+const Home = (props) => {
 	return (
 		<div className="content">
 			<h1>Welcome Home!</h1>
@@ -9,6 +10,31 @@ export const Home = (props) => {
 		</div>
 	);
 }
+*/
+
+const Home = ( { currentTime, onClick } ) => {
+	return (
+		<div>
+			<p>Current Time: {currentTime.currentTime.toString()}</p>
+			<button onClick={onClick}>
+				Update
+			</button>
+		</div>
+	);
+}
+
+/*
+const Home = ({ actions, currentTime}) => {
+	return (
+		<div>
+			<p>Current Time: {currentTime.toString()}</p>
+			<button onClick={actions.currentTime.updateTime}>
+				Update
+			</button>
+		</div>
+	)
+}
+*/
 
 const mapStateToProps = (state) => {
 	return {
@@ -16,7 +42,16 @@ const mapStateToProps = (state) => {
 	}
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return { 
+		onClick: () => {
+			dispatch(actions.updateTime())
+		}
+	}
+}
+
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Home);
 

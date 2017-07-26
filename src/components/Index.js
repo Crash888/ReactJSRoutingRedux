@@ -1,8 +1,14 @@
 import React from 'react';
-import { Navbar } from '../components/Nav/Navbar';
+import Navbar from '../components/Nav/Navbar';
+import { connect } from 'react-redux';
+
 
 export class Index extends React.Component {
 	render() {
+		//const { currentUser } = this.props;
+		//console.log(this.props);
+
+		//const { currentUser } = this.props;
 		return (
 			<div className="app">
 				<Navbar />
@@ -14,5 +20,8 @@ export class Index extends React.Component {
 	}
 }
 
-export default Index;
+export default connect(state => ({
+	currentUser: state.currentUser
+}))(Index);
+
 

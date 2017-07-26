@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export const Navbar = () => (
+const Navbar = ( { currentUser } ) => (
 	<div className="navbar">
 		<NavLink
 			className="link"
@@ -15,7 +16,31 @@ export const Navbar = () => (
 			activeClassName="active">
 				About
 		</NavLink>
+		{currentUser.loggedIn ?
+			<NavLink
+				to="/logout"
+				className="link"
+				activeClassName="active">
+					Logout
+			</NavLink> :
+			<NavLink
+				to="/login"
+				className="link"
+				activeClassName="active">
+					Login
+			</NavLink>
+		}
 	</div>
 )
 
-export default Navbar;
+const mapStateToProps = (state) => {
+	return {
+		currentUser: state.currentUser
+	}
+}
+
+export default connect(
+	mapStateToProps,
+)(Navbar);
+
+//export default Navbar;

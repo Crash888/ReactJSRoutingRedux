@@ -5,7 +5,7 @@ import App from './App';
 export const Root = ({store, actions}) => {
 	return (
 		<Provider store={store}>
-			<App actions={actions} />
+			<App store={store} actions={actions} />
 		</Provider>
 	);
 }
