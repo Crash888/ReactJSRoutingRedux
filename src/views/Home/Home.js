@@ -44,8 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return { 
-		onClick: () => {
-			dispatch(actions.updateTime())
+		onClick: (opts={}) => {
+			dispatch(actions.updateTime(opts))
 		}
 	}
 }
