@@ -8,9 +8,6 @@ import {
   BrowserRouter as Router, 
   Route } from 'react-router-dom';
 
-//const Home = () => (<div><h1>Welcome Home</h1></div>)
-//const About = () => (<div><h1>About</h1></div>)
-
 class App extends React.Component {
   render() {
     const createElement = (Component, props) => {

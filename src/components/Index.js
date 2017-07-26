@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 
 export class Index extends React.Component {
 	render() {
-		//const { currentUser } = this.props;
-		//console.log(this.props);
-
-		//const { currentUser } = this.props;
 		return (
 			<div className="app">
 				<Navbar />

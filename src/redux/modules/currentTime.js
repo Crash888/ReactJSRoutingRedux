@@ -20,11 +20,6 @@ export const reducer = (state = initialState, action) => {
 	}
 }
 
-/*
-export const actions = {
-	updateTime: () => ({type: types.FETCH_NEW_TIME})
-}
-*/
 export const actions = {
 	updateTime: ({timezone = 'pst', str = 'now'}) => ({
 		type: types.FETCH_NEW_TIME,

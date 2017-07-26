@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { actions } from '../../redux/modules/currentUser';
 
-const Navbar = ( { currentUser } ) => (
+const Navbar = ( { currentUser, login, logout } ) => (
 	<div className="navbar">
 		<NavLink
 			className="link"
@@ -20,13 +21,15 @@ const Navbar = ( { currentUser } ) => (
 			<NavLink
 				to="/logout"
 				className="link"
-				activeClassName="active">
+				activeClassName="active"
+				onClick={logout}>
 					Logout
 			</NavLink> :
 			<NavLink
 				to="/login"
 				className="link"
-				activeClassName="active">
+				activeClassName="active"
+				onClick={login}>
 					Login
 			</NavLink>
 		}
@@ -39,8 +42,19 @@ const mapStateToProps = (state) => {
 	}
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return { 
+		logout: () => {
+			dispatch(actions.logout())
+		},
+		login: (opts={}) => {
+			dispatch(actions.login(opts))
+		}
+	}
+}
+
 export default connect(
 	mapStateToProps,
+	mapDispatchToProps
 )(Navbar);
 
-//export default Navbar;

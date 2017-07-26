@@ -21,8 +21,6 @@ export const configureStore = () => {
 
 	);
 
-	//const store = createStore(currentTime.reducer);
-	
 	const actions = {
 		currentTime: 
 			bindActionCreators(
